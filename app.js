@@ -1,10 +1,8 @@
 var http = require("http");
-
+var router = require("./router");
 
 http.createServer(function( request, response ){
-	response.writeHead( 200, {"Content-Type":"text/plain"});
-	response.write("Hello world \n");
-	response.end();
-}).listen( 3030 );
-
-console.log( "Server is running at localhost:3030" );
+	router( request, response );
+}).listen( 3030, function(){
+	console.log("서버 구동");
+});
